@@ -8,6 +8,10 @@ import '@/styles/index.less'
 
 import router from '@/router'
 
+// 配置axios
+import axios from 'axios'
+Vue.prototype.$http = axios
+
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
