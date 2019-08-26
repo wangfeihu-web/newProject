@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import store from '@/store'
 export default {
   // mounted () {
   //   // 渲染完毕后
@@ -62,6 +63,9 @@ export default {
         if (valid) {
           this.$http.post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations', this.loginForm)
             .then(res => {
+              // 用户信息  res.data 是响应的主体 在.data就是用户信息
+              // 将操作用户信息 写在store中
+              store.setUser(res.data.data)
               this.$router.push('/')
             })
             .catch(() => {
